@@ -35,6 +35,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto create(CreateUserDto dto) {
+        if (userRepository.existsByUsername(dto.getUsername()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Username already in use");
+        if (userRepository.existsByEmail(dto.getEmail()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already in use");
+        if (userRepository.existsByPhone(dto.getPhone()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Phone already in use");
         User entity = userMapper.toEntity(dto);
         entity = userRepository.save(entity);
         return userMapper.toDto(entity);

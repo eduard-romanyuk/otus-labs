@@ -7,4 +7,3 @@ data:
   POSTGRES_USERNAME: "postgres"
   POSTGRES_HOST: "postgres-lab-postgresql.otus-lab.svc.cluster.local"
   POSTGRES_PORT: "5432"
-  POSTGRES_PASSWORD: "postgres-pass"
