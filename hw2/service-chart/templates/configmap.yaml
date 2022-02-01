@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: crud-app-config
+data:
+  POSTGRES_USERNAME: "{{ .Values.db.username }}"
+  POSTGRES_HOST: "{{ .Values.db.host }}"
+  POSTGRES_PORT: "{{ .Values.db.port }}"

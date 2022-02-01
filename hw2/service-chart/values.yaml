@@ -1,0 +1,14 @@
+replicaCount: 2
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  host: arch.homework
+
+db:
+  username: "postgres"
+  password: ""
+  host: "postgres-lab-postgresql.otus-lab.svc.cluster.local"
+  port: "5432"

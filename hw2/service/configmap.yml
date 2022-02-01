@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: crud-app-config
-  namespace: otus-lab
-data:
-  POSTGRES_USERNAME: "postgres"
-  POSTGRES_HOST: "postgres-lab-postgresql.otus-lab.svc.cluster.local"
-  POSTGRES_PORT: "5432"

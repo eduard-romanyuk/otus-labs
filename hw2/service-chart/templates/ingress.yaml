@@ -2,13 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hw2-ingress
-  namespace: otus-lab
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
-    - host: arch.homework
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
           - path: /otusapp/eduard-romaniuk($|/)(.*)
@@ -17,4 +16,5 @@ spec:
               service:
                 name: hw2-service
                 port:
-                  number: 80
+                  number: {{ .Values.service.port }}
+

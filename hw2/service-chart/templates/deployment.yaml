@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hw2-deployment
-  namespace: otus-lab
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: crud-app
@@ -14,11 +13,12 @@ spec:
         app: crud-app
     spec:
       containers:
-        - name: app
-          image: eduardromanyuk/otus-hwt:v2
+        - name: {{ .Chart.Name }}
+          image: "eduardromanyuk/otus-hwt:{{ .Chart.AppVersion }}"
           ports:
             - name: web
               containerPort: 8080
+              protocol: TCP
           envFrom:
             - configMapRef:
                 name: crud-app-config
