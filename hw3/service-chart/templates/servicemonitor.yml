@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: service-monitor
+  labels:
+    app: crud-app
+spec:
+  jobLabel: service-monitor
+  namespaceSelector:
+    matchNames:
+      - "otus-lab"
+  selector:
+    matchLabels:
+      app: crud-app
+  endpoints:
+    - interval: 15s
+      port: web
+      scheme: http
+      path: /actuator/prometheus

@@ -1,0 +1,14 @@
+replicaCount: 2
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  host: arch.homework
+
+db:
+  username: "postgres"
+  password: ""
+  host: ""
+  port: "5432"
