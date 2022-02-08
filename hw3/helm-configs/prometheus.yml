@@ -1,4 +1,31 @@
+grafana:
+  adminPassword: grafana-pass
+  ingress:
+    enabled: true
+    annotations: {
+      kubernetes.io/ingress.class: "nginx",
+      ingress.kubernetes.io/rewrite-target: "/"
+    }
+    hosts:
+      - "monitoring.arch.homework"
+    path: "/grafana"
+  grafana.ini:
+    server:
+      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana"
+      serve_from_sub_path: true
+
 prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations: {
+      ingress.kubernetes.io/rewrite-target: "/"
+    }
+    hosts:
+      - "monitoring.arch.homework"
+    paths:
+      - "/prometheus"
   prometheusSpec:
+    routePrefix: "/prometheus"
     serviceMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelector: {}

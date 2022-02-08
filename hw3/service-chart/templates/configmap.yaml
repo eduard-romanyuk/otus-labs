@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: crud-app-config
 data:
-  POSTGRES_USERNAME: {{ .Values.db.username | quote }}
-  {{ if .Values.db.host }}
-  POSTGRES_HOST: {{ .Values.db.host | quote }}
+  {{ if .Values.postgresql.auth.username }}
+  POSTGRES_USERNAME: {{ .Values.postgresql.auth.username | quote }}
   {{ else }}
-  POSTGRES_HOST: "postgres-lab-postgresql.{{ .Release.Namespace }}.svc.cluster.local"
+  POSTGRES_USERNAME: "postgres"
   {{ end }}
-  POSTGRES_PORT: {{ .Values.db.port | quote }}
+  POSTGRES_HOST: "hw3-service-postgresql"
+  POSTGRES_PORT: "5432"

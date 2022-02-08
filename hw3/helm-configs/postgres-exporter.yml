@@ -1,0 +1,10 @@
+serviceMonitor:
+  enabled: true
+
+config:
+  datasource:
+    host: hw3-service-postgresql
+    user: postgres
+    passwordSecret:
+      name: "postgres-secret"
+      key: "postgres-password"

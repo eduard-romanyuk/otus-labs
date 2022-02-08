@@ -3,4 +3,9 @@ name: service-chart
 description: Otus hw 3 service chart
 type: application
 version: 1.0.0
-appVersion: "v1"
+appVersion: "v2"
+
+dependencies:
+  - name: postgresql
+    version: "11.0.*"
+    repository: https://charts.bitnami.com/bitnami

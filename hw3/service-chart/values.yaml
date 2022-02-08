@@ -6,9 +6,3 @@ service:
 
 ingress:
   host: arch.homework
-
-db:
-  username: "postgres"
-  password: ""
-  host: ""
-  port: "5432"

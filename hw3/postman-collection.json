@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "afa7f7be-4d52-4635-bd99-88cf5c7d4a8a",
-		"name": "otus-hw2",
+		"name": "otus-hw3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -14,15 +14,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk",
-							"protocol": "http",
+							"raw": "{{base-url}}",
 							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"eduard-romaniuk"
+								"{{base-url}}"
 							]
 						}
 					},
@@ -34,16 +28,48 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/health",
-							"protocol": "http",
+							"raw": "{{base-url}}/health",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
 								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "prometheus-metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/actuator/prometheus",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"actuator",
+								"prometheus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "error",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/error",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"error"
 							]
 						}
 					},
@@ -60,15 +86,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/user",
-							"protocol": "http",
+							"raw": "{{base-url}}/api/user",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
+								"api",
 								"user"
 							]
 						}
@@ -81,15 +104,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/user/1",
-							"protocol": "http",
+							"raw": "{{base-url}}/api/user/1",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
+								"api",
 								"user",
 								"1"
 							]
@@ -112,15 +132,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/user",
-							"protocol": "http",
+							"raw": "{{base-url}}/api/user",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
+								"api",
 								"user"
 							]
 						}
@@ -142,15 +159,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/user/1",
-							"protocol": "http",
+							"raw": "{{base-url}}/api/user/1",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
+								"api",
 								"user",
 								"1"
 							]
@@ -164,15 +178,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/eduard-romaniuk/user/1",
-							"protocol": "http",
+							"raw": "{{base-url}}/api/user/1",
 							"host": [
-								"arch",
-								"homework"
+								"{{base-url}}"
 							],
 							"path": [
-								"otusapp",
-								"eduard-romaniuk",
+								"api",
 								"user",
 								"1"
 							]
@@ -181,6 +192,33 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "http://arch.homework",
+			"type": "string"
 		}
 	]
 }
